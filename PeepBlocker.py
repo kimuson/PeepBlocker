@@ -79,12 +79,12 @@ def runRecgnition():
                     warningScreen = tkinter.Toplevel(root)
                     warningScreen.attributes("-topmost", True)
                     warningScreen.configure(bg="black")
-                    warningScreen.title("注意：画面が覗き込まれています")
+                    warningScreen.title("Caution：Being secretly peeped")
                     tyuimongon = tkinter.Label(
-                        warningScreen, font=("", 30), text='覗き込まれている可能性があります')
+                        warningScreen, font=("", 30), text='Caution：Being secretly peeped')
                     tyuimongon.pack(padx=10, pady=5)
                     btn = tkinter.Button(
-                        warningScreen, text='閉じる', width=10, command=on_closing)
+                        warningScreen, text='close', width=10, command=on_closing)
                     btn.pack(padx=2, pady=2)
                     w, h = warningScreen.winfo_screenwidth(), warningScreen.winfo_screenheight()
                     warningScreen.geometry("%dx%d+0+0" % (w, h))
@@ -110,14 +110,14 @@ def changeText():
     global startUpFlg
     if (startUpFlg == "off"):
         statusText.set("Runnig")
-        startButtonText.set("停止")
+        startButtonText.set("Stop")
         startUpFlg = "on"
         thread1 = threading.Thread(target=runRecgnition)
         thread1.start()
 
     else:
         statusText.set("Stopped")
-        startButtonText.set("再開")
+        startButtonText.set("Run")
         startUpFlg = "off"
 
 # ------------------------------------------------------------------
@@ -136,7 +136,8 @@ def setSavePath():
         path_w = 'path.txt'
         with open(path_w, mode='w') as f:
             f.write(path)
-            messagebox.showinfo('Info', '保存先の設定が完了しました\n保存先：'+path)
+            messagebox.showinfo(
+                'Info', 'Save destination setting completed\nDestination：'+path)
 
 # ------------------------------------------------------------------
 # Shutdown processing
@@ -160,7 +161,7 @@ def shutdown():
 root = tkinter.Tk()
 root.title(u" ")
 root.attributes("-topmost", True)
-root.geometry("150x300")
+root.geometry("180x300")
 statusText = tkinter.StringVar()
 statusText.set("Stopped")
 startButtonText = tkinter.StringVar()
@@ -181,7 +182,7 @@ titleLabel = tkinter.Label(frame, font=("", 15), text='PeepBlocker')
 titleLabel.pack(padx=10, pady=5)
 
 # GUI parts: SubTitle
-subTitleLabel1 = tkinter.Label(root, text='■ 監視起動状態 ■')
+subTitleLabel1 = tkinter.Label(root, text='■ Monitoring Status ■')
 subTitleLabel1.pack()
 
 # GUI parts: statusLabel1
@@ -194,12 +195,12 @@ startButton = tkinter.Button(root, textvariable=startButtonText,
 startButton.pack(padx=5, pady=5)
 
 # GUI parts: subTitleLabel2
-subTitleLabel2 = tkinter.Label(root, text='■ 画像の保存先設定 ■')
+subTitleLabel2 = tkinter.Label(root, text='■ Set save destination ■')
 subTitleLabel2.pack()
 
 # GUI parts: setSavePathButton
 setSavePathButton = tkinter.Button(
-    root, text='設定する', width=10, command=setSavePath)
+    root, text='Set', width=10, command=setSavePath)
 setSavePathButton.pack(padx=2, pady=2)
 
 root.protocol("WM_DELETE_WINDOW", shutdown)
