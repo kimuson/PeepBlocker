@@ -34,8 +34,10 @@ python PeepBlocker.py
 ```
 
 ## Recommended environment
-mac OS Catalina
+mac OS Catalina 
+
 python 3.6.5
+
 ( ※ Should work on Windows but not verified )
 
 
