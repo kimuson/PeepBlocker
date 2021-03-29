@@ -74,7 +74,7 @@ psutil==5.6.7
 ptyprocess==0.6.0
 py2app==0.13
 pycocotools==2.0.0
-Pygments==2.5.2
+Pygments==2.7.4
 PyInstaller==3.6
 pylint==2.4.4
 pyobjc==6.1
