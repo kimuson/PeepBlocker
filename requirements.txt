@@ -57,7 +57,7 @@ nbformat==5.0.3
 networkx==2.4
 notebook==6.0.2
 numba==0.47.0
-numpy==1.18.1
+numpy==1.22.0
 opencv-python==4.1.2.30
 opt-einsum==3.1.0
 pandas==0.25.3
